@@ -1,5 +1,11 @@
-# /api/index.py
+# api/index.py
 from mangum import Mangum
-from src.main import app
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hello from Vercel"}
 
 handler = Mangum(app)
